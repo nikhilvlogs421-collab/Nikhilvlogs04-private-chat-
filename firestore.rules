@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /rooms/{roomId}/messages/{messageId} {
+      allow read, create: if
+        request.resource == null || (
+          request.resource.data.sender is string &&
+          request.resource.data.sender.size() > 0 &&
+          request.resource.data.sender.size() <= 30 &&
+          request.resource.data.text is string &&
+          request.resource.data.text.size() <= 1000 &&
+          request.resource.data.imageUrl is string
+        );
+    }
+  }
+}

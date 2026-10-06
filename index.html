@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Private Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section id="home" class="card">
+      <h1>Private Chat</h1>
+      <p>Apne friend ke saath private room banao.</p>
+      <input id="nameInput" maxlength="30" placeholder="Aapka naam">
+      <button id="createBtn">Naya private room</button>
+      <div class="join">
+        <input id="roomInput" placeholder="Room ID">
+        <button id="joinBtn">Join room</button>
+      </div>
+      <p class="note">Room link sirf unhi logon ko bheje jinke saath chat karni hai.</p>
+    </section>
+
+    <section id="chat" class="chat hidden">
+      <header>
+        <div>
+          <strong>Private Chat</strong>
+          <small id="roomLabel"></small>
+        </div>
+        <button id="copyBtn" class="secondary">Link copy</button>
+      </header>
+
+      <div id="messages" class="messages"></div>
+
+      <div id="uploadStatus" class="status"></div>
+      <form id="sendForm" class="composer">
+        <label class="imageBtn" title="Image bheje">
+          🖼️
+          <input id="imageInput" type="file" accept="image/*">
+        </label>
+        <input id="messageInput" maxlength="1000" autocomplete="off" placeholder="Message likho...">
+        <button>Send</button>
+      </form>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
